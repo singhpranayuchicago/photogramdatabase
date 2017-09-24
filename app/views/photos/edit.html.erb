@@ -42,7 +42,7 @@
           Friendrequest
         </label>
 
-        <input type="text" id="friendrequest_id" name="friendrequest_id" placeholder="Friendrequest" class="form-control" value="<%= @photo.friendrequest_id %>">
+        <%= select_tag(:friendrequest_id, options_from_collection_for_select(FriendRequest.all, :id, :created_at, @photo.friendrequest_id), :class => "form-control") %>
       </div>
 
       <button class="btn btn-warning">
