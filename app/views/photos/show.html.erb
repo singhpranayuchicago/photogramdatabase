@@ -12,7 +12,13 @@
       <dd><img src="<%= @photo.image %>" class="img-responsive"></dd>
 
       <dt>Friendrequest</dt>
-      <dd><%= @photo.friendrequest_id %></dd>
+      <dd>
+        <% if @photo.friendrequest.present? %>
+          <a href="/friend_requests/<%= @photo.friendrequest_id %>">
+            <%= @photo.friendrequest.created_at %>
+          </a>
+        <% end %>
+      </dd>
 
     </dl>
 

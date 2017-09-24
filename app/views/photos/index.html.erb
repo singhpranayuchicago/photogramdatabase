@@ -19,7 +19,13 @@
       <tr>
         <td><%= photo.caption %></td>
         <td><img src='<%= photo.image %>' class='img-responsive'></td>
-        <td><%= photo.friendrequest.created_at %></td>
+        <td>
+          <% if photo.friendrequest.present? %>
+            <a href="/friend_requests/<%= photo.friendrequest.id %>">
+              <%= photo.friendrequest.created_at %>
+            </a>
+          <% end %>
+        </td>
         <td>
           <a href="/photos/<%= photo.id %>" class="btn btn-primary">Show</a>
           <a href="/photos/<%= photo.id %>/edit" class="btn btn-warning">Edit</a>
